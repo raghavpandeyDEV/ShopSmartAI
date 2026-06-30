@@ -19,9 +19,12 @@ app.use((req, res, next) => {
 
 app.use(express.json())
 app.use(cors({
-    origin:'http://localhost:5173',
-    credentials:true
-}))
+  origin: [
+    "http://localhost:5173",
+    "https://your-vercel-app.vercel.app"
+  ],
+  credentials: true
+}));
 app.use('/api/v1/user', userRoute)
 app.use('/api/v1/product', productRoute )
 app.use('/api/v1/cart', cartRoute )
