@@ -21,9 +21,9 @@ app.use(express.json())
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "https://your-vercel-app.vercel.app"
+    "https://shop-smart-ai-git-main-raghav-s-projects25.vercel.app"
   ],
-  credentials: true
+  credentials: true,
 }));
 app.use('/api/v1/user', userRoute)
 app.use('/api/v1/product', productRoute )
