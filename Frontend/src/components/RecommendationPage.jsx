@@ -68,8 +68,8 @@ const RecommendedProducts = ({ userId }) => {
   useEffect(() => {
     if (!userId) return;
     setLoading(true);
-    axios
-      .get(`http://localhost:5001/recommend/${userId}`)
+    axios.get(
+  `${import.meta.env.VITE_RECOMMENDER_URL}/recommend/${userId}`)
       .then((res) => {
         setProducts(res.data?.recommendations ?? []);
       })
