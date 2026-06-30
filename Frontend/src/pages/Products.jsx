@@ -47,7 +47,7 @@ const Products = () => {
 
     try {
       setLoading(true);
-      const { data } = await axios.post("http://localhost:8000/api/v1/assistant", {
+      const { data } =await axios.post(`${import.meta.env.VITE_URL}/api/v1/assistant`, {
         question: currentQuestion,
       });
       setMessages((prev) => [...prev, { role: "assistant", text: data.answer }]);

@@ -61,16 +61,16 @@ const submitHandler = async (e) => {
       });
     }
 
-    // 🔥 Send JSON to backend
+    
     const res = await axios.post(
-      `http://localhost:8000/api/v1/product/add`,
+     `${import.meta.env.VITE_URL}/api/v1/product/add`,
       {
         productName: productData.productName,
         productPrice: productData.productPrice,
         productDesc: productData.productDesc,
         category: productData.category,
         brand: productData.brand,
-        productImg: imageUrls, // 👈 IMPORTANT
+        productImg: imageUrls, // 
       },
       {
         headers: {
