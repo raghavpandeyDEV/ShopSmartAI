@@ -9,16 +9,11 @@ import { useSelector } from "react-redux";
 const SingleProduct = () => {
   const { id: productId } = useParams();
 
-  const { products } = useSelector(
-    (store) => store.product
-  );
+  const { products } = useSelector((store) => store.product);
+  const { user } = useSelector((store) => store.user);
 
   const product = products.find(
     (item) => item._id === productId
-  );
-
-  const user = JSON.parse(
-    localStorage.getItem("user")
   );
 
   if (!product) {
@@ -50,9 +45,7 @@ const SingleProduct = () => {
             You Might Also Like
           </h2>
 
-          <RecommendedProducts
-            userId={user._id}
-          />
+          <RecommendedProducts userId={user._id} />
         </div>
       )}
     </div>
