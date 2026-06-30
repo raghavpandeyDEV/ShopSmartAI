@@ -13,7 +13,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-MONGO_URI = "mongodb+srv://Raghav:raghav123@e-commerce.bxu7ckl.mongodb.net/"
+MONGO_URI = os.environ.get("MONGO_URI")
 DB_NAME = "test"
 MODEL_PATH = "svd_model.pkl"
 
@@ -154,4 +154,5 @@ def health():
 
 
 if __name__ == "__main__":
-    app.run(port=5001, debug=True)
+    port = int(os.environ.get("PORT", 5001))
+    app.run(host="0.0.0.0", port=port)
